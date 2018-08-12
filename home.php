@@ -21,36 +21,24 @@ if(!isset($_SESSION["username"])) {
     </head>
     <body>
     
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown" style="flex-direction: row-reverse;">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Disponibilités</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Reservations</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="logout.php">déconnexion</a>
-          </li>
-          
-        </ul>
-      </div>
-      </div>
-    </nav>  
+    <?php
+    include("navbar.php");    
+    ?> 
     <div class="container">
         <div class="jumbotron container-fluid">
           
-           <p>bienvenue dans votre espace personnel <?php  echo $_SESSION["prenom"]." ".$_SESSION["nom"]  ?></p>
         
+          
+           <p>bienvenue dans votre espace personnel <?php  echo $_SESSION["prenom"]." ".$_SESSION["nom"]  ?></p>
+             <?php
+                if($_SESSION["gestionnaire"]==1){
+                    echo '<a href="listJoueurs.php">liste des joueur</a><br/>';
+                    echo '<a href="listTerrainReserve.php">liste des terrains reservé</a><br/>';
+                    echo '<a href="listeTerrainDispo.php">liste des terrains disponible</a>';
+                }
+              
+            
+            ?>
         
         </div>  
     </div>
