@@ -50,7 +50,7 @@ if(!isset($_SESSION["username"])) {
 
             <div class="container">
                 <div class="jumbotron container-fluid">
-                    <h2>liste des terrains reservé dans la journée en cours</h2>
+                    <h2>liste des terrains disponible dans la journée en cours</h2>
                     <div class="form-group">
                         <form class="signup" action="listTerrainReserve.php" method="post" onsubmit="return validateOptions();">
                             <div class="form-group">
@@ -126,13 +126,13 @@ if(!isset($_SESSION["username"])) {
                 from reservation
                 inner join joueur
                 on reservation.joueur_id=joueur.id
-                where reservation.date_reservation between '".$debut."' and '".$fin."' and terrain_id='".$terrain."' 
+                where reservation.date_reservation not between '".$debut."' and '".$fin."' and terrain_id='".$terrain."' 
                 order by date_reservation ASC ; ";
                 $result=mysqli_query($conn,$query);
                 
                 if(mysqli_num_rows($result)==0){
                     echo '<div class="alert alert-warning">
-                            aucune reservation n\'a été faite de '.$heureDebut.'h a '.$heureFin.'h pour le terrain '.$terrain.'
+                            aucune disponibilité n\'a été faite de '.$heureDebut.'h a '.$heureFin.'h pour le terrain '.$terrain.'
                           </div>';
                    
                 }else{
@@ -161,8 +161,7 @@ if(!isset($_SESSION["username"])) {
             </div>
 
 
-
-          <script src="script.js"></script>
+    <script src="script.js"></script>
     </body>
 
 
