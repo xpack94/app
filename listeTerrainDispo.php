@@ -52,7 +52,7 @@ if(!isset($_SESSION["username"])) {
                 <div class="jumbotron container-fluid">
                     <h2>liste des terrains disponible dans la journée en cours</h2>
                     <div class="form-group">
-                        <form class="signup" action="listTerrainReserve.php" method="post" onsubmit="return validateOptions();">
+                        <form class="signup" action="listeTerrainDispo.php" method="post" onsubmit="return validateOptions();">
                             <div class="form-group">
                                 <label>Heure de debut</label>
                                 <select name="debut" class="debut">
@@ -109,7 +109,7 @@ if(!isset($_SESSION["username"])) {
 
                         </form>
                     </div>
-                    <?php
+            <?php
            if(isset($_POST["debut"]) and isset($_POST["fin"]) and isset($_POST["terrain"])){
                $heureDebut=$_POST["debut"];
                $heureFin=$_POST["fin"];
@@ -126,32 +126,26 @@ if(!isset($_SESSION["username"])) {
                 from reservation
                 inner join joueur
                 on reservation.joueur_id=joueur.id
-                where reservation.date_reservation not between '".$debut."' and '".$fin."' and terrain_id='".$terrain."' 
+                where reservation.date_reservation  between '".$debut."' and '".$fin."' and terrain_id='".$terrain."' 
                 order by date_reservation ASC ; ";
                 $result=mysqli_query($conn,$query);
                 
-                if(mysqli_num_rows($result)==0){
-                    echo '<div class="alert alert-warning">
-                            aucune disponibilité n\'a été faite de '.$heureDebut.'h a '.$heureFin.'h pour le terrain '.$terrain.'
-                          </div>';
+                if(mysqli_num_rows($result)!=0){
+                    echo '<div class="alert alert-danger">
+                           le terrain '.$terrain.' n\' est pas disponible de '.$heureDebut.'h a '.$heureFin.' h'.
+                          '</div>';
                    
                 }else{
-                    echo "<table class='table'><tr>
-                        <th></th>
-                        <th>nom</th>
-                        <th>prenom</th>
-                        <th>nom usager</th>
-                        </tr>" ;
-                    while($row=mysqli_fetch_assoc($result)){
-                    echo "<tr><td>".substr($row["time"],0,-6)."h-".((int)substr($row["time"],0,-6)+1)."h</td>";
-                    echo "<td>".$row["nom"]."</td>";
-                    echo "<td>".$row["prenom"]."</td>";
-                    echo "<td>".$row["login"]."</td>";
-                    echo "</tr>";
-                }    
+                      echo '<div class="alert alert-success">
+                           le terrain '.$terrain.' est  disponible de '.$heureDebut.'h a '.$heureFin.' h'.
+                          '</div>';  
                 }
                 
-               echo "</table>";
+               
+           }else{
+               echo '<div class="alert alert-info">
+                           veulliez entrer un interval de temps et choisir un terrain 
+                    </div>';
            }
            
         ?>
@@ -166,3 +160,4 @@ if(!isset($_SESSION["username"])) {
 
 
 </html>
+
