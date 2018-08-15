@@ -32,6 +32,7 @@ if(!isset($_SESSION["username"])) {
                 if($_SESSION["gestionnaire"]==1){?>
                     <a href="disponibilit%C3%A9s.php">Disponibilités des terrains</a><br/>
                      <a href="listeDesReservations.php">histoqiue des Reservations</a><br/>
+                     <a href="reservation.php">faire une reservation de terrain</a><br/>
                     <a href="listJoueurs.php">liste des joueur</a><br/>
                     <a href="listTerrainReserve.php">liste des terrains reservé</a><br/>
                     <a href="listeTerrainDispo.php">liste des terrains disponible</a><br/>
@@ -41,6 +42,7 @@ if(!isset($_SESSION["username"])) {
                     ?>
                     <a href="disponibilit%C3%A9s.php">Disponibilités des terrains</a><br/>
                      <a href="listeDesReservations.php">histoqiue des Reservations</a><br/>
+                      <a href="reservation.php">faire une reservation de terrain</a><br/>
                    <?php
                     }
                     ?>

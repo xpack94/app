@@ -14,7 +14,7 @@ echo ' <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="nav-link" href="disponibilités.php" >Disponibilités</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Reservations</a>
+            <a class="nav-link" href="reservation.php">Reservations</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="logout.php">déconnexion</a>
