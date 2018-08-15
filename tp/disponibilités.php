@@ -24,9 +24,7 @@ if(!isset($_SESSION["username"])) {
     ?> 
     <div class="container">
         <div class="jumbotron container-fluid">
-         <p>
-             Disponibilités et reservations des terrains pour demain
-         </p>
+          
          <?php
             date_default_timezone_set('America/Montreal');
             $dateTime = new DateTime('tomorrow');
@@ -58,7 +56,7 @@ if(!isset($_SESSION["username"])) {
             $table="reservation";
             $timeOfDayCopy=$timeOfDay;
             while($row=mysqli_fetch_assoc($terrainResults)){
-                echo '<tr><td>Terrain'.$row["id"].'</td>';
+                echo '<tr><td>'.$row["id"].'</td>';
                 for ($i=0;$i<15;$i++){
                      $query="SELECT * FROM $table WHERE date_reservation='".$timeOfDayCopy."' and terrain_id='".$row["id"]."'";
                     $result=mysqli_query($conn,$query);

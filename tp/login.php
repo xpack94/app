@@ -15,7 +15,6 @@ if($row=mysqli_fetch_assoc ( $res)){
     $_SESSION["nom"]=$row["nom"];
     $_SESSION["prenom"]=$row["prenom"];
     $_SESSION["gestionnaire"]=$row["gestionnaire"];
-    $_SESSION["id"]=$row["id"];
     header("Location: home.php");
 }else{
     echo 'user not found';
