@@ -1,11 +1,9 @@
 
 <?php
 session_start();
-if(!isset($_SESSION["username"])) { 
-    header("location:login.html");
-    exit();
-}else{
-
+if(!isset($_SESSION["username"])) {
+   
+    header("location:login.php");
 }
 ?>
 
@@ -17,34 +15,48 @@ if(!isset($_SESSION["username"])) {
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="home.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     </head>
     <body>
     
+    <style>
     <?php
+        include("home.css");
+    ?>    
+    </style>
+    <?php
+    
     include("navbar.php");    
     ?> 
-    <div class="container">
+    <div class="container wrapper">
         <div class="jumbotron container-fluid">
           
         
           
-           <p>bienvenue dans votre espace personnel <?php  echo $_SESSION["prenom"]." ".$_SESSION["nom"]  ?></p>
+           <h3>bienvenue dans votre espace personnel <?php  echo $_SESSION["prenom"]." ".$_SESSION["nom"]  ?></h3>
+            <hr/>
              <?php
                 if($_SESSION["gestionnaire"]==1){?>
-                    <a href="disponibilit%C3%A9s.php">Disponibilités des terrains</a><br/>
-                     <a href="listeDesReservations.php">histoqiue des Reservations</a><br/>
-                     <a href="reservation.php">faire une reservation de terrain</a><br/>
-                    <a href="listJoueurs.php">liste des joueur</a><br/>
-                    <a href="listTerrainReserve.php">liste des terrains reservé</a><br/>
-                    <a href="listeTerrainDispo.php">liste des terrains disponible</a><br/>
-                    
+                 
+                   <ul>
+                       
+                     <li> <a href="disponibilit%C3%A9s.php">Disponibilités</a>:permet d'afficher les disponibilités des terrains </li>  
+                       <li> <a href="reservation.php">reservation</a>:permet de faire une reservation de terrain</li>
+                       <li><a href="annulation.php">annulation</a>:permet d'annuler une reservation d'un terrain</li>
+                       <li><a href="listeDesReservations.php">historique</a>:permet d'afficher l'historique des reservations</li>
+                       <li><a href="listJoueurs.php">liste des joueur</a>:affiche la liste de tous les joueurs du club</li>
+                       <li><a href="listTerrainReserve.php">terrains reservés</a>:permet d'afficher la liste des terains reservés</li>
+                       <li><a href="listeTerrainDispo.php">terrains disponible</a>:permet d'afficher la liste des terrains disponible</li>
+                     </ul>
                     <?php
                 }else{
                     ?>
-                    <a href="disponibilit%C3%A9s.php">Disponibilités des terrains</a><br/>
-                     <a href="listeDesReservations.php">histoqiue des Reservations</a><br/>
-                      <a href="reservation.php">faire une reservation de terrain</a><br/>
+                    <ul>
+                            <li> <a href="disponibilit%C3%A9s.php">Disponibilités</a>:permet d'afficher les disponibilités des terrains </li>  
+                           <li> <a href="reservation.php">reservation</a>:permet de faire une reservation de terrain</li>
+                           <li><a href="annulation.php">annulation</a>:permet d'annuler une reservation d'un terrain</li>
+                           <li><a href="listeDesReservations.php">historique</a>:permet d'afficher l'historique des reservations</li>
+                      </ul>
                    <?php
                     }
                     ?>

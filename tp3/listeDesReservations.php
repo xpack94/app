@@ -16,7 +16,11 @@ if(!isset($_SESSION["username"])) {
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="home.css">
+         <style>
+        <?php
+            include("home.css");
+        ?>    
+        </style>
         <!------ Include the above in your HEAD tag ---------->
     </head>
 
@@ -25,9 +29,10 @@ if(!isset($_SESSION["username"])) {
     include("navbar.php");
 ?>
 
-            <div class="container">
+            <div class="container wrapper">
                 <div class="jumbotron container-fluid">
                     <h3>affichage de l'historique des reservations</h3>
+                    <hr/>
                     <form class="" action="listeDesReservations.php" method="get">
                         <div class="form-group">
                             <label>Mois</label>
@@ -66,7 +71,7 @@ if(!isset($_SESSION["username"])) {
                         $results=mysqli_query($conn,$query);
                         if(mysqli_num_rows($results)!=0){
                             
-                            echo '<table class="table table-responsive table-bordered"><tr><th>terrain reservé</th><th>heure</th><th>date</th></tr>';
+                            echo '<table class="table  table-bordered"><tr><th>terrain reservé</th><th>heure</th><th>date</th></tr>';
                             while($row=mysqli_fetch_assoc($results)){
                                 echo '<tr><td>';
                                 echo 'Terrain'.$row["terrain_id"].'</td>';

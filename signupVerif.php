@@ -10,7 +10,6 @@ $username=$_POST["username"];
 $password=$_POST["password"];
 $table_name="joueur";
 include("connectdb.php");
-echo "called";
 
 $doesnExist="SELECT * FROM $table_name WHERE login='$username';";
 
@@ -23,12 +22,15 @@ if(mysqli_num_rows($resultIfExists)>0){
 
 
     $result=mysqli_query($conn,$query);
+   
     if($result===TRUE){
         session_start();
-         $_SESSION["username"]=$username;
-         $_SESSION["nom"]=$nom;
-         $_SESSION["prenom"]=$prenom;
-         header("Location: home.php");
+        $_SESSION["username"]=$username;
+        $_SESSION["nom"]=$_POST["nom"];
+        $_SESSION["prenom"]=$_POST["prenom"];
+        $_SESSION["gestionnaire"]=0;
+        $_SESSION["id"]=mysqli_insert_id($conn);
+        header("Location: home.php");
     }
 
 }

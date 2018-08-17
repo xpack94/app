@@ -15,18 +15,23 @@ if(!isset($_SESSION["username"])) {
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="home.css">
+     <style>
+        <?php
+            include("home.css");
+        ?>    
+    </style>
     </head>
     <body>
     
     <?php
     include("navbar.php");    
     ?> 
-    <div class="container">
+    <div class="container wrapper">
         <div class="jumbotron container-fluid">
-         <p>
+         <h3>
              Disponibilités et reservations des terrains pour demain
-         </p>
+         </h3>
+         <hr/>
          <?php
             date_default_timezone_set('America/Montreal');
             $dateTime = new DateTime('tomorrow');

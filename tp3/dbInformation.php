@@ -2,13 +2,13 @@
 <?php
 
 
-$db_user = "nahnahab";
+$db_user = "root";
 
-$db_password = "azert";
+$db_password = "";
 
-$db_host = "www-ens";
+$db_host = "127.0.0.1:3306";
 
-$db_name = 'nahnahab_tp3';
+$db_name = 'tp3';
 
 
 ?>

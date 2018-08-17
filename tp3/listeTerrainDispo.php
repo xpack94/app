@@ -16,7 +16,11 @@ if(!isset($_SESSION["username"])) {
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="home.css">
+        <style>
+        <?php
+            include("home.css");
+        ?>    
+        </style>
         <!------ Include the above in your HEAD tag ---------->
         <style>
             select {
@@ -48,9 +52,10 @@ if(!isset($_SESSION["username"])) {
     include("navbar.php");
 ?>
 
-            <div class="container">
+            <div class="container wrapper">
                 <div class="jumbotron container-fluid">
                     <h2>liste des terrains disponible dans la journée en cours</h2>
+                    <hr/>
                     <div class="form-group">
                         <form class="" action="listeTerrainDispo.php" method="post" onsubmit="return validateOptions();">
                             <div class="form-group">

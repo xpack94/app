@@ -15,7 +15,11 @@ if(!isset($_SESSION["username"])) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="home.css">
+    <style>
+        <?php
+            include("home.css");
+        ?>    
+    </style>
     <!------ Include the above in your HEAD tag ---------->
 </head>
 <body>
@@ -23,9 +27,10 @@ if(!isset($_SESSION["username"])) {
     <?php
     include("navbar.php");
     ?>
-     <div class="container">
+     <div class="container wrapper">
         <div class="jumbotron container-fluid">
         <h2>Liste des joueurs du club</h2>
+        <hr/>
         <?php
             include("connectdb.php");
             $table_name="joueur";

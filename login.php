@@ -32,16 +32,13 @@ if( isset($_SESSION["username"])){
                 <span id="reauth-email" class="reauth-email"></span>
                 <input type="text" id="inputEmail" class="form-control" placeholder="username" name="username" required autofocus>
                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
-                <div id="remember" class="checkbox">
+                <div id="no-account" >
                     <label>
-                        <input type="checkbox" value="remember-me"> Remember me
+                        <a href="signup.php">s'inscrir</a>
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
             </form><!-- /form -->
-            <a href="#" class="forgot-password">
-                Forgot the password?
-            </a>
         </div><!-- /card-container -->
     </div><!-- /container -->
        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -39,7 +39,9 @@ if(!isset($_SESSION["username"])) {
             select[name="terrain"] {
                 margin-left: 7px;
             }
-
+          <?php
+            include("home.css");
+            ?>
         </style>
     </head>
 
@@ -48,9 +50,11 @@ if(!isset($_SESSION["username"])) {
     include("navbar.php");
 ?>
 
-            <div class="container">
+            <div class="container wrapper">
                 <div class="jumbotron container-fluid">
                     <h2>liste des terrains reservé dans la journée en cours</h2>
+                    <hr/>
+                   
                     <div class="form-group">
                         <form class="signup" action="listTerrainReserve.php" method="post" onsubmit="return validateOptions();">
                             <div class="form-group">
@@ -152,6 +156,10 @@ if(!isset($_SESSION["username"])) {
                 }
                 
                echo "</table>";
+           }else{
+               echo  '<div class="alert alert-info">
+                          veuillez choisir les heures de debut et de fin ainsi que le terrain
+                        </div>';
            }
            
         ?>

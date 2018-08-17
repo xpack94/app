@@ -15,7 +15,11 @@ if(!isset($_SESSION["username"])) {
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="home.css">
+         <style>
+        <?php
+            include("home.css");
+        ?>    
+        </style>
     </head>
 
     <body>
@@ -23,11 +27,12 @@ if(!isset($_SESSION["username"])) {
         <?php
     include("navbar.php");    
     ?>
-            <div class="container">
+            <div class="container wrapper">
                 <div class="jumbotron container-fluid">
-                    <p>
+                    <h3>
                         Reservations d'un terrain pour demain
-                    </p>
+                    </h3>
+                    <hr/>
                     <div class="form-group">
                         <form class="" action="reservation.php" method="post">
                             <div class="form-group">
@@ -64,6 +69,7 @@ if(!isset($_SESSION["username"])) {
 
                         <?php
                              if(isset($_POST["heureReservation"])){
+                                
                                 $heureDeReservation=$_POST["heureReservation"];
                                 $terrain=$_POST["terrain"];
                                 date_default_timezone_set('America/Montreal');
