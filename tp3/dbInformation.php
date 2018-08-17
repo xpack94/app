@@ -2,8 +2,6 @@
 <?php
 
 
-
-
 $db_user = "nahnahab";
 
 $db_password = "azert";

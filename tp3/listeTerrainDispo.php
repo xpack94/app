@@ -52,7 +52,7 @@ if(!isset($_SESSION["username"])) {
                 <div class="jumbotron container-fluid">
                     <h2>liste des terrains disponible dans la journée en cours</h2>
                     <div class="form-group">
-                        <form class="signup" action="listeTerrainDispo.php" method="post" onsubmit="return validateOptions();">
+                        <form class="" action="listeTerrainDispo.php" method="post" onsubmit="return validateOptions();">
                             <div class="form-group">
                                 <label>Heure de debut</label>
                                 <select name="debut" class="debut">
